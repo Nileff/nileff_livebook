@@ -1,0 +1,63 @@
+ol {
+  float: left;
+  counter-reset: li;
+  list-style: none;
+  line-height: @sizeUnit * 1.5;
+  padding: @sizeUnit*.5 @sizeUnit 0;
+  width: 100%;
+  li{
+    padding: @sizeUnit*.5 0;
+    float: left;
+    width: 100%;
+    box-sizing: content-box;
+    &:before {
+      display: block;
+      float: left;
+      height: @sizeUnit * 1.5;
+      line-height: @sizeUnit * 1.5;
+      width: @sizeUnit * 1.5;
+      counter-increment: li;
+      content: counters(li,".");
+      background-color: @menuBgColor;
+      border-radius: 50%;
+      text-align: center;
+      font-size: .8rem;
+      color: fade(@titleColor, 75%);
+    }
+    ol{
+      width: calc(~"100% - @{sizeUnit}");
+      padding-right: 0;
+    }
+    h1{
+      position: relative;
+      z-index: -1;
+      display: block;
+      float: left;
+      margin: 0 0 0 -@sizeUnit * .5;
+      padding: 0 @sizeUnit;
+      font-size: 1.6rem;
+      font-family: @titleFont;
+      font-weight: normal;
+      color: @titleColor;
+      line-height: @sizeUnit * 1.5;
+      background-color: @bodyBgColor;
+      border-radius: 0 0 @sizeUnit * 1.5 @sizeUnit * 1.5;
+      max-width: calc(~"100% - @{sizeUnit} * 4");
+    }
+    h1:empty{
+      display: none;
+    }
+    .text{
+      position: relative;
+      z-index: -2;
+      float: left;
+      margin: @sizeUnit * -0.5 0 0 @sizeUnit;
+      width: calc(~"100% - @{sizeUnit} * 4");
+      background-color: @contentBgColor;
+      border-radius: 5px;
+      padding: @sizeUnit * .75 @sizeUnit;
+      font-size: 1.3rem;
+      text-align: justify;
+    }
+  }
+}

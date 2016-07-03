@@ -1,0 +1,228 @@
+#content {
+  margin: @sizeUnit * 2;
+  height: calc(~"100% - @{sizeUnit} * 4");
+  width: calc(~"100% - @{sizeUnit} * 4");
+}
+
+.content-title {
+  float: left;
+  margin: 0 0 @sizeUnit @sizeUnit * 5;
+  display: inline-block;
+
+  &-conteiner{
+    float: left;
+  }
+
+  h1 {
+    margin: 0;
+    font-family: @titleFont;
+    font-weight: normal;
+    font-size: 2.5rem;
+    line-height: @sizeUnit * 2.5;
+    color: @titleColor;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    width: calc(~"100% + (@{sizeUnit} * 5)");
+    height: 1px;
+    margin-left: -@sizeUnit * 2;
+    margin-top: 5px;
+    background-color: fade(@titleColor, 70%);
+  }
+}
+
+.content-header {
+  float: left;
+  width: 100%;
+}
+
+.content-order {
+  float: right;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: @sizeUnit *.5 @sizeUnit * 3 @sizeUnit 0;
+  padding-left: @sizeUnit *.5;
+  width: @sizeUnit * 11;
+  border-bottom: 1px solid fade(@titleColor, 30%);
+  box-sizing: border-box;
+  color: @titleColor;
+  font-weight: normal;
+  font-size: 1.2rem;
+  line-height: @sizeUnit * 2;
+  height: @sizeUnit * 2;
+  cursor: default;
+
+  &-list{
+    position: absolute;
+    margin-top: -1px;
+    margin-left: -@sizeUnit * .5;
+    //border: 1px solid fade(@titleColor, 30%);
+    background-color: fade(@menuBgColor, 95%);
+    width: @sizeUnit * 11;
+    box-sizing: border-box;
+    max-height: @sizeUnit * 2 * 8;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: 1.2rem;
+    z-index: 9;
+    box-shadow: 3px 2px 3px 2px @shadowColor;
+
+    &.close{
+      visibility: hidden;
+    }
+
+    &.open{
+      visibility: visible;
+    }
+
+    &-item{
+      display: block;
+      float: left;
+      min-width: 100%;
+      height: @sizeUnit * 2;
+      line-height: @sizeUnit * 2;
+
+      &:hover{
+        background-color: fade(@titleColor, 15%);
+
+        &:before{
+          content:'\2611';
+        }
+      }
+
+      &:before{
+        float: left;
+        display: block;
+        height: @sizeUnit * 1.5;
+        width: @sizeUnit * 1.5;
+        border: 1px solid fade(@titleColor, 30%);
+        border-radius: 50%;
+        line-height: @sizeUnit * 1.5;
+        margin: @sizeUnit * .25 @sizeUnit * .5;
+        font-family: @iconFont;
+        content:'\2610';
+        font-size: 1rem;
+        text-align: center;
+        color: fade(@titleColor, 50%);
+        box-sizing: border-box;
+      }
+
+      &.selected{
+        background-color: fade(@titleColor, 90%);
+        color: fade(@contentBgColor, 99%);
+
+        &:before{
+          content:'\2611';
+          color: fade(@contentBgColor, 85%);
+          border: 1px solid fade(@contentBgColor, 85%);
+        }
+      }
+    }
+  }
+
+  &:before {
+    content: 'Упорядочить по:';
+    font-size: 0.9rem;
+    display: block;
+    float: left;
+    color: fade(@titleColor, 70%);
+    line-height: @sizeUnit * 2;
+    margin-top: 1px;
+    width: @sizeUnit * 6.5;
+    font-family: @contentFont;
+    margin-left: -@sizeUnit * 6.5;
+    position: absolute;
+  }
+
+  &:after{
+    font-family: @iconFont;
+    font-size: 1.2rem;
+    position: relative;
+    content: '\2c5';
+    display: block;
+    float: right;
+    width: @sizeUnit;
+    text-align: center;
+  }
+}
+
+.book-item, .author-item, .genre-item {
+  .name {
+    overflow: hidden;
+    height: @sizeUnit * 3;
+    text-align: center;
+    line-height: @sizeUnit * 3;
+
+    div, a {
+      display: inline-block;
+      color: @titleColor;
+      font-family: @titleFont;
+      font-size: 1.7rem;
+      font-weight: normal;
+      line-height: @sizeUnit * 1.5;
+    }
+  }
+
+  *:before{
+    font-size: 0.8rem;
+    padding-top: 2px;
+    display: block;
+    float: left;
+    color: fade(@titleColor, 45%);
+    width: @sizeUnit * 4;
+  }
+}
+
+.book-item .genre,
+.book-item .author,
+.book-item .co-author,
+.book-item .max-level,
+.author-item .author-book-count,
+.author-item .author-chapter-count,
+.genre-item .book-count{
+  overflow: hidden;
+  font-size: 1.1rem;
+  line-height: @sizeUnit * 1.5;
+  color: fade(@mainTextColor, 60%);
+  height: @sizeUnit * 1.5;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.author-conteiner, .genre-conteiner{
+
+@media (min-width: 1726px) {
+    width: 16.5%;
+}
+
+@media (min-width: 1461px) and (max-width: 1725px) {
+    width: 20%;
+}
+
+@media (min-width: 1196px) and (max-width: 1460px) {
+    width: 25%;
+}
+
+@media (min-width: 931px) and (max-width: 1195px) {
+    width: 33%;
+}
+
+@media (min-width: 736px) and (max-width: 965px) {
+    width: 50%;
+}
+
+@media (max-width: 735px){
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .content-title-conteiner{
+    width: 100%;
+  }
+  .content-order{
+    margin: 0 @sizeUnit @sizeUnit;
+  }
+}

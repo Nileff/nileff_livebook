@@ -1,0 +1,202 @@
+.book-conteiner {
+  display: inline-block;
+  text-align: center;
+  margin-bottom: @sizeUnit * 2;
+
+  @media (min-width: 1761px) {
+    width: 20%;
+  }
+
+  @media (min-width: 1461px) and (max-width: 1760px) {
+    width: 25%;
+  }
+
+  @media (min-width: 1161px) and (max-width: 1460px) {
+    width: 33%;
+  }
+
+  @media (min-width: 861px) and (max-width: 1160px) {
+    width: 50%;
+  }
+
+  @media (max-width: 860px) {
+    width: 100%;
+  }
+}
+
+.book-item {
+  display: inline-block;
+  text-align: left;
+  background-color: @contentBgColor;
+  width: @sizeUnit * 15;
+  height: @sizeUnit * 25;
+  padding: @sizeUnit * .5 @sizeUnit * .5 0;
+  box-shadow: 3px 3px 3px 2px @shadowColor;
+  &.ads{
+    padding: @sizeUnit * .25 @sizeUnit * .5;
+  }
+
+  a{
+    text-decoration: none;
+    color: inherit;
+    margin-right: 4px;
+
+    &:not(:last-child):after{
+      content: ',';
+    }
+  }
+
+  .genre:before {
+      content: 'Жанры:';
+  }
+
+  .author:before {
+    content: 'Автор:';
+  }
+
+  .max-level:before {
+    content: 'Главы:';
+  }
+
+  .co-author {
+    &:before {
+      content: 'Соавторы:';
+    }
+    div div {
+      max-width: @sizeUnit * 12;
+      white-space: normal;
+      background: fade(@titleColor, 90%);
+      border-radius: 0 5px 5px 5px;
+      box-shadow: 6px 2px 3px @shadowColor;
+      color: @contentBgColor;
+      content: attr(data-tooltip);
+      padding: @sizeUnit * .5;
+      position: absolute;
+      margin-top: -@sizeUnit * .5;
+      margin-left: @sizeUnit * 4.5;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.5s;
+
+      a {
+        margin-right: 8px;
+      }
+    }
+    &:hover div div {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .description {
+    overflow: hidden;
+    font-size: 1.3rem;
+    line-height: @sizeUnit * 1.5;
+    color: @mainTextColor;
+    height: @sizeUnit * 1.5 * 6;
+    margin: @sizeUnit * .5;
+    margin-bottom: 0;
+    text-align: justify;
+
+    p {
+      margin: 0;
+      text-indent: @sizeUnit * 1.5;
+    }
+
+    &:before {
+      float: none;
+      color: fade(@titleColor, 70%);
+      content: '~';
+      font-family: @iconFont;
+      font-size: 2rem;
+      line-height: @sizeUnit * 1.5;
+      text-align: center;
+      height: @sizeUnit * 1.5;
+      width: 100%;
+    }
+  }
+
+  .dates{
+    height: @sizeUnit * 3.5;
+  }
+
+  .update, .public {
+    font-size: 1.1rem;
+    line-height: @sizeUnit * 1.5;
+    height: @sizeUnit * 2.5;
+    color: fade(@titleColor, 60%);
+    max-width: 50%;
+    &:before {
+      line-height: @sizeUnit;
+      height: @sizeUnit;
+    }
+  }
+
+  .public {
+    text-align: left;
+    float: left;
+    width: 50%;
+
+    &:before {
+      content: 'Опубликованно:';
+      width: @sizeUnit * 6;
+    }
+  }
+
+  .update {
+    text-align: right;
+    float: right;
+    width: 50%;
+
+    &:before {
+      float: right;
+      content: 'Обновлено:';
+      width: @sizeUnit * 6;
+    }
+  }
+
+  &.chapter {
+    width: @sizeUnit * 15;
+    height: @sizeUnit * 21;
+
+    .chapter {
+      overflow: hidden;
+      height: @sizeUnit * 3;
+      text-align: center;
+      line-height: @sizeUnit * 3;
+
+      div {
+        display: inline-block;
+        color: @titleColor;
+        font-family: @contentFont;
+        font-size: 1.4rem;
+        font-weight: normal;
+        line-height: @sizeUnit * 1.5;
+      }
+    }
+
+    .public {
+      text-align: left;
+      float: left;
+      max-width: 100%;
+      width: 100%;
+      line-height: @sizeUnit * 1.5;
+      height: @sizeUnit * 1.5;
+
+      &:before {
+        float: left;
+        text-align: left;
+        line-height: @sizeUnit * 1.5;
+        height: @sizeUnit * 1.5;
+      }
+    }
+
+    .button{
+      margin-top: @sizeUnit * .5;
+    }
+  }
+
+  .button{
+    margin-top: -@sizeUnit * .5;
+  }
+}

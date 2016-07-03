@@ -1,0 +1,276 @@
+#login {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: @logoBgColor;
+  height: @sizeUnit * 3;
+  overflow: hidden;
+
+  &-btn {
+    height: @sizeUnit * 3;
+    line-height: @sizeUnit * 3;
+    width: @menuNormalWidth;
+    cursor: pointer;
+    font-family: @titleFont;
+    font-size: 1.5rem;
+    color: @contentBgColor;
+
+    &:before {
+      display: block;
+      float: left;
+      font-family: @iconFont;
+      font-size: 1.8rem;
+      margin: 0 @sizeUnit;
+      height: @sizeUnit * 3;
+      line-height: @sizeUnit * 3;
+      width: @sizeUnit * 2;
+      text-align: center;
+    }
+
+    &.in:before{
+      content: "\e00E";
+    }
+
+    &.out div{
+      content: ' ';
+      display: block;
+      float: right;
+      width: @sizeUnit * 2;
+      height: @sizeUnit * 2;
+      border-radius: 50%;
+      background-color: @contentBgColor;
+      margin: @sizeUnit * .5;
+      background-size: cover;
+    }
+
+    &.out:before{
+      content: "\e00F";
+    }
+
+    @media (max-width: @mobileScrinWidth) {
+      width: @menuMobileWidth;
+    }
+  }
+
+  &-panel {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: fade(@titleColor, 80%);
+    z-index: 99;
+
+    &.open {
+      visibility: visible;
+    }
+    &.close {
+      visibility: hidden;
+    }
+
+    .login-form {
+      position: relative;
+      width: @sizeUnit * 20;
+      height: @sizeUnit * 10.5;
+      background-color: fade(@bodyBgColor, 90%);
+      margin: calc(~"50vh - @{sizeUnit} * 8.5") calc(~"50vw - @{sizeUnit} * 10");
+
+      &.reg{
+        height: @sizeUnit * 17;
+      }
+
+      .close-btn {
+        font-family: @iconFont;
+        font-size: 1.5rem;
+        height: @sizeUnit * 2;
+        line-height: @sizeUnit * 2;
+        width: @sizeUnit * 2;
+        float: right;
+        text-align: center;
+        color: @titleColor;
+        cursor: pointer;
+      }
+
+      &-title {
+        font-family: @titleFont;
+        font-size: 1.8rem;
+        color: @titleColor;
+        height: @sizeUnit * 2;
+        line-height: @sizeUnit * 2;
+        padding: @sizeUnit * .5 @sizeUnit * 2;
+
+        div {
+          display: inline-block;
+          font-size: 1.2rem;
+          color: fade(@titleColor, 60%);
+        }
+      }
+
+      .button {
+        margin: 0;
+
+        &.left {
+          border-radius: 0 5px 0 0;
+          float: left;
+        }
+      }
+
+      .wrapper {
+        height: @sizeUnit * 2;
+        line-height: @sizeUnit * 2;
+        margin: 0 @sizeUnit;
+
+        input {
+          padding: 0 @sizeUnit * .5;
+          height: @sizeUnit * 2;
+          border: 0;
+          background-color: transparent;
+          border-bottom: 1px solid fade(@titleColor, 30%);
+          color: @titleColor;
+          box-sizing: border-box;
+          width: @sizeUnit * 13.5;
+          font-family: @contentFont;
+          font-size: 1.2rem;
+
+          &:focus {
+            outline: none;
+          }
+
+          &:-webkit-autofill{
+            -webkit-box-shadow: inset 0 0 0 50px mix(@bodyBgColor, @titleColor, 92%);
+            border-bottom: 1px solid fade(@titleColor, 80%);
+            -webkit-text-fill-color: @titleColor;
+          }
+        }
+
+        &.noValid {
+          input {
+            border-bottom: 1px solid fade(@accentColor, 60%);
+          }
+          &:after{
+            content: '\E00B';
+            color: fade(@accentColor, 70%);
+            font-family: @iconFont;
+            font-size: 1.25rem;
+            margin-left: -@sizeUnit;
+            display: block;
+            float: right;
+            height: @sizeUnit * 2;
+            width: @sizeUnit;
+            padding-top: 2px;
+          }
+          &:hover:after{
+            position: absolute;
+            background-color: fade(@contentBgColor, 90%);
+            border-radius: 0 0 5px 5px;
+            font-family: @contentFont;
+            font-size: 1rem;
+            margin-left: @sizeUnit * 4.75;
+            width: @sizeUnit * 12;
+            height: auto;
+            padding: @sizeUnit * .5;
+            line-height: @sizeUnit;
+          }
+        }
+
+        &:before {
+          display: block;
+          float: left;
+          height: @sizeUnit * 2;
+          line-height: @sizeUnit * 2;
+          color: fade(@titleColor, 70%);
+          width: @sizeUnit * 4.5;
+        }
+      }
+
+      .login-form-login {
+        &:before {
+          content: 'Логин:';
+        }
+        &.noValid:hover:after{
+          content: 'Логин должен содержать не менее 6 символов английского алфавита, цифр или знаков -_';
+        }
+      }
+
+      .login-form-password {
+        &:before {
+          content: 'Пароль:';
+        }
+        &.noValid:hover:after{
+          content: 'Пароль должен содержать не менее 8 символов английского алфавита или цифр';
+        }
+      }
+
+      .login-form-password2 {
+        &:before {
+          line-height: @sizeUnit;
+          content: 'Повторите пароль:';
+        }
+        &.noValid:hover:after{
+          content: 'Пароли не совпадают';
+        }
+      }
+
+      .login-form-email {
+        &:before {
+          content: 'E-Mail:';
+        }
+        &.noValid:hover:after{
+          content: 'Неверный E-Mail адрес';
+        }
+      }
+
+      .ruleChecker{
+        height: @sizeUnit * 2;
+        line-height: @sizeUnit * 2;
+        color: @titleColor;
+        margin: @sizeUnit * .5 @sizeUnit 0;
+        font-size: 1.1rem;
+
+        a{
+          color: @titleColor;
+          text-decoration: underline;
+        }
+
+        &:before{
+          color: fade(@titleColor, 20%);
+          content:'\2610';
+          font-family: @iconFont;
+          display: block;
+          float: left;
+          height: @sizeUnit * 1.5 - 2px;
+          line-height: @sizeUnit * 1.5 - 2px;
+          width: @sizeUnit * 1.5 - 2px;
+          text-align: center;
+          border: 1px solid fade(@titleColor, 50%);
+          border-radius: 50%;
+          margin: @sizeUnit * .25 @sizeUnit 0 0;
+        }
+
+        &.checked:before{
+          color: @titleColor;
+          content:'\2611';
+        }
+      }
+
+      .error {
+        height: @sizeUnit;
+        margin: @sizeUnit * .5 @sizeUnit;
+
+        div:not(:empty) {
+          float: right;
+          height: @sizeUnit;
+          line-height: @sizeUnit;
+          overflow: hidden;
+          font-size: .9rem;
+          background-color: @accentColor;
+          color: white;
+          border-radius: 3px;
+          padding: 0 @sizeUnit * .5
+        }
+      }
+    }
+  }
+}

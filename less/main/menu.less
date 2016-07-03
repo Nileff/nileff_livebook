@@ -1,0 +1,232 @@
+#menu-panel {
+  overflow-x: hidden;
+  overflow-y: auto;
+  float: left;
+  padding: @sizeUnit * 2 0;
+  height: calc(~"100vh - @{sizeUnit} * 13");
+
+  &::-webkit-scrollbar {
+    display: none;
+    width: 6px;
+    background-color: @contentBgColor;
+
+    &-thumb {
+      display: none;
+      background-color: @menuBgColor;
+      border: 1px solid fade(@titleColor, 50%);
+      border-radius: 3px;
+    }
+  }
+
+  &:hover{
+    &::-webkit-scrollbar {
+      display: block;
+      &-thumb {
+        display: block;
+      }
+    }
+  }
+
+  @media (max-width: @mobileScrinWidth) {
+    padding: @sizeUnit * 1 0;
+    height: calc(~"100vh - @{sizeUnit} * 9");
+    width: @menuMobileWidth;
+  }
+}
+
+.menu-item {
+  display: inline-block;
+  width: @menuNormalWidth - 4px;
+  line-height: @sizeUnit * 4;
+  color: @titleColor;
+  font-family: @titleFont;
+  font-size: 2rem;
+  font-weight: normal;
+  text-decoration: none;
+  height: @sizeUnit * 4;
+  position: relative;
+
+  &-conteiner {
+    width: @menuNormalWidth;
+
+    @media (max-width: @mobileScrinWidth) {
+      width: @menuMobileWidth;
+    }
+  }
+
+  .menu-text:before {
+    float: left;
+    font-family: @iconFont;
+    font-size: 3rem;
+    font-weight: normal;
+    line-height: @sizeUnit * 4;
+    margin: 0 @sizeUnit 0 @sizeUnit - 4px;
+    width: @sizeUnit * 2;
+    text-align: center;
+  }
+
+  .menu-color {
+    float: left;
+    height: @sizeUnit * 4;
+    width: 4px;
+  }
+
+  @media (max-width: @mobileScrinWidth) {
+    width: @menuMobileWidth - 4px;
+    margin-bottom: -4px;
+    overflow: hidden;
+    .menu-text{
+      width: @menuMobileWidth - 8px;
+      overflow: hidden;
+      &:before{
+        margin: 0 @sizeUnit - 6px;
+      }
+    }
+  }
+
+  #menu-item-library .menu-text:before {
+    content: "\e000";
+  }
+
+  #menu-item-write .menu-text:before {
+    content: "\e001";
+  }
+
+  #menu-item-user .menu-text:before {
+    content: "\e002";
+  }
+
+  #menu-item-library-all .menu-text:before {
+    content: "\e003";
+  }
+
+  #menu-item-library-author .menu-text:before {
+    content: "\e004";
+  }
+
+  #menu-item-library-genre .menu-text:before {
+    content: "\e005";
+  }
+
+  #menu-item-library-favorite .menu-text:before {
+    content: "*";
+  }
+
+  #menu-item-user-book .menu-text:before {
+    content: "\e007";
+  }
+
+  #menu-item-user-chapter .menu-text:before {
+    content: "\e008";
+  }
+
+  #menu-item-user-settings .menu-text:before {
+    content: "\e009";
+  }
+
+  #menu-item-info .menu-text:before {
+    content: "\e00C";
+  }
+
+  #menu-item-info-rule .menu-text:before {
+    content: "\e00B";
+  }
+
+  #menu-item-info-faq .menu-text:before {
+    content: "\e00D";
+  }
+
+  #menu-item-info-contact .menu-text:before {
+    content: "@";
+  }
+
+  #menu-item-info-about .menu-text:before {
+    content: "\e00B";
+    transform: rotate(180deg);
+  }
+
+  &:hover {
+    box-shadow: 1px 1px 2px 1px @shadowColor;
+
+    .menu-text:before {
+      transition: color .3s;
+    }
+
+    .menu-color {
+      transition: background-color 1s;
+    }
+  }
+
+  &.active:not(.sub), &:hover {
+    .menu-text:before {
+      color: @accentColor;
+    }
+
+    .menu-color {
+      background-color: @accentColor;
+    }
+  }
+
+  &.active + .submenu {
+    max-height: @sizeUnit * 3 * 5;
+    width: @menuNormalWidth;
+    transition: max-height .3s;
+
+    @media (max-width: @mobileScrinWidth) {
+      width: @menuMobileWidth;
+    }
+  }
+}
+
+.submenu-item {
+  line-height: @sizeUnit * 3;
+  color: @titleColor;
+  font-size: 1.5rem;
+  height: @sizeUnit * 3;
+  margin-left: @sizeUnit * .5;
+  width: @menuNormalWidth - @sizeUnit;
+
+  &:first-child{
+    margin-top: 3px;
+  }
+
+  &:last-child{
+    margin-bottom: 3px;
+  }
+
+  @media (max-width: 640px) {
+    margin-left: @sizeUnit * .25;
+    width: @menuMobileWidth - @sizeUnit*.5;
+    .menu-text{
+      width: @menuMobileWidth - @sizeUnit*.75;
+      &:before{
+        margin: 0 @sizeUnit - 2px;
+      }
+    }
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+
+  .menu-color {
+    width: 2px;
+    height: @sizeUnit * 3;
+  }
+
+  .menu-text:before {
+    font-size: 2rem;
+    line-height: @sizeUnit * 3;
+    width: @sizeUnit * 1.5;
+
+    @media (max-width: @mobileScrinWidth) {
+      margin-right: @sizeUnit * 2;
+    }
+  }
+}
+
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  background-color: @bodyBgColor;
+  transition: max-height .2s;
+}

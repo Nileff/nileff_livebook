@@ -1,0 +1,111 @@
+html {
+  font-family: @contentFont;
+  font-size: 12px;
+  min-width: @sizeUnit * 12;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: @bodyBgColor;
+  float: left;
+}
+
+#main {
+  width: 100%;
+}
+
+#main-panel {
+  min-width: @sizeUnit * 18;
+  position: absolute;
+  top: 0;
+  left: @menuNormalWidth;
+  width: calc(~"100% - @{menuNormalWidth}");
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  @media (max-width: @mobileScrinWidth) {
+    left: @menuMobileWidth;
+    width: calc(~"100% - @{menuMobileWidth}");
+  }
+}
+
+#left-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: @menuNormalWidth;
+  min-height: 100%;
+  background-color: @menuBgColor;
+  box-shadow: 0 0 4px 4px @shadowColor;
+  z-index: 2;
+
+  @media (max-width: @mobileScrinWidth) {
+    overflow: hidden;
+    width: @menuMobileWidth;
+  }
+}
+
+a {
+  text-decoration: none;
+
+  &.active {
+    pointer-events: none;
+  }
+}
+
+.rating {
+  font-family: @iconFont;
+  height: @sizeUnit * 2;
+  line-height: @sizeUnit * 2;
+  text-align: center;
+
+  .starRating {
+    display: inline-block;
+    width: (@sizeUnit * 5) + (@sizeUnit * 2);
+    margin-left: @sizeUnit * 2;
+    &:after {
+      display: block;
+      float: left;
+      content: attr(data-tooltip);
+      font-family: @contentFont;
+      font-size: .8rem;
+      line-height: @sizeUnit * 1.5;
+      color: @titleColor;
+      width: @sizeUnit * 2;
+      text-align: center;
+    }
+  }
+
+  .star {
+    &:before {
+      float: left;
+      font-size: 1.2rem;
+      color: fade(@titleColor, 70%);
+      content: '#';
+      width: @sizeUnit;
+    }
+    &.fill:before {
+      content: '*';
+    }
+  }
+}
+
+.button {
+  float: right;
+  height: @sizeUnit * 1.5;
+  background: @titleColor;
+  margin: @sizeUnit * .5 -@sizeUnit * .5 0;
+  border-radius: 5px 0 0 0;
+  text-align: center;
+  padding: 0 @sizeUnit;
+  font-size: 1.3rem;
+  line-height: @sizeUnit * 1.5;
+  color: @contentBgColor;
+  cursor: pointer;
+}
+
+div[contenteditable]:focus {
+  outline: none;
+}

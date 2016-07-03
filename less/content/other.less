@@ -1,0 +1,101 @@
+.er404{
+  height: 100%;
+  &:before {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    content: "";
+  }
+
+  div {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 2rem;
+    color: fade(@accentColor, 70%);
+    text-align: center;
+    padding: @sizeUnit * 2;
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+
+.about {
+  float: left;
+  .about-if {
+    background-color: @contentBgColor;
+    border-radius: 5px;
+    margin: @sizeUnit 0;
+    padding: @sizeUnit * .5 @sizeUnit;
+    font-size: 1.4rem;
+    line-height: @sizeUnit * 2;
+
+    .about-when {
+      margin: @sizeUnit * .5 -@sizeUnit * .5 0;
+      padding: @sizeUnit * .5;
+      border-radius: 5px;
+      background-color: @titleColor;
+      color: @bodyBgColor;
+      font-family: @titleFont;
+      font-size: 1.6rem;
+    }
+  }
+
+  .about-question{
+    margin-top: @sizeUnit;
+    padding: @sizeUnit * .5 @sizeUnit;
+    position: relative;
+    background-color: @bodyBgColor;
+    line-height: @sizeUnit * 2;
+    border-radius: 0 0 @sizeUnit * 2.5 @sizeUnit * 2.5;
+    font-family: @titleFont;
+    font-size: 1.6rem;
+    z-index: 2;
+    color: @titleColor;
+    display: inline-block;
+  }
+
+  .about-answer{
+    background-color: @contentBgColor;
+    border-radius: 5px;
+    margin: -@sizeUnit 0 @sizeUnit * .5 0;
+    padding: @sizeUnit @sizeUnit 0;
+    font-size: 1.4rem;
+    line-height: @sizeUnit * 2;
+  }
+
+  p{
+    margin: @sizeUnit *.5 0;
+    padding: 0;
+    text-align: justify;
+    text-indent: @sizeUnit * 1.5;
+  }
+
+  &:last-child{
+    margin-bottom: @sizeUnit * 2;
+  }
+}
+
+.contact{
+  float: left;
+  width: 100%;
+
+  div{
+    line-height: @sizeUnit * 2;
+    margin: @sizeUnit;
+    font-size: 1.4rem;
+    color: fade(@titleColor, 70%);
+  }
+
+  a{
+    color: @titleColor;
+    font-size: 1.4rem;
+    text-decoration: underline;
+    padding: @sizeUnit * .5;
+    border-radius: 5px;
+    background: @contentBgColor;
+    &:hover, &:active, a:visited{
+      color: @titleColor;
+      text-decoration: underline;
+    }
+  }
+}

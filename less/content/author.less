@@ -1,0 +1,793 @@
+#content > .author {
+
+  .wrapper {
+    float: left;
+    width: 100%;
+  }
+
+  .author-avatar {
+    position: relative;
+    z-index: 1;
+    div {
+      width: @sizeUnit * 12;
+      height: @sizeUnit * 12;
+      border-radius: 50%;
+      background: no-repeat center;
+      background-size: cover;
+
+      &:before {
+        content: '\e002';
+        display: block;
+        position: absolute;
+        height: @sizeUnit * 12 + 4;
+        width: @sizeUnit * 12 + 4;
+        color: fade(@titleColor, 45%);
+        border: 1px solid fade(@titleColor, 60%);
+        border-radius: 50%;
+        margin: -3px 0 0 -3px;
+        line-height: @sizeUnit * 11.5;
+        font-family: @iconFont;
+        font-size: 12rem;
+        z-index: -1;
+        text-align: center;
+      }
+    }
+
+    &-box {
+      width: @sizeUnit * 12;
+      float: left;
+      margin: @sizeUnit;
+      display: inline-block;
+    }
+  }
+
+  .author-info {
+
+    &-box {
+      float: left;
+      margin: @sizeUnit;
+
+      .wrapper {
+        max-width: @sizeUnit * 24;
+        min-width: @sizeUnit * 18;
+      }
+
+      > * {
+        width: 100%;
+        height: 100%;
+        color: @titleColor;
+        font-size: 1.2rem;
+        line-height: @sizeUnit * 2;
+        box-sizing: border-box;
+      }
+
+      *:before {
+        font-size: 0.8rem;
+        padding-top: 3px;
+        display: block;
+        float: left;
+        color: fade(@titleColor, 45%);
+        width: @sizeUnit * 6;
+        line-height: @sizeUnit * 2 - 2px;
+      }
+    }
+
+    &-name {
+      font-family: @titleFont;
+      color: @titleColor;
+      font-size: 2.5rem;
+      line-height: @sizeUnit * 2.5;
+      margin-bottom: @sizeUnit;
+    }
+
+    &-email {
+      margin-left: @sizeUnit * 6;
+      width: calc(~"100% - @{sizeUnit} * 6");
+      &:before {
+        content: 'E-Mail:';
+        margin-left: -@sizeUnit * 6;
+      }
+    }
+
+    &-box .author-info-birthday {
+      margin-left: @sizeUnit * 6;
+      width: calc(~"100% - @{sizeUnit} * 6");
+      &:not(:empty):before {
+        content: 'День рождения:';
+        margin-left: -@sizeUnit * 6;
+      }
+    }
+
+    &-city {
+      margin-left: @sizeUnit * 6;
+      width: calc(~"100% - @{sizeUnit} * 6");
+      &:not(:empty):before {
+        content: 'Родной город:';
+        margin-left: -@sizeUnit * 6;
+      }
+    }
+
+    &-education {
+      margin-left: @sizeUnit * 6;
+      width: calc(~"100% - @{sizeUnit} * 6");
+      &:not(:empty):before {
+        content: 'Образование:';
+        margin-left: -@sizeUnit * 6;
+      }
+    }
+
+    &-about {
+      margin-left: @sizeUnit * 6;
+      width: calc(~"100% - @{sizeUnit} * 6");
+      &:not(:empty):before {
+        content: 'Обо мне:';
+        margin-left: -@sizeUnit * 6;
+      }
+    }
+
+    &-favorite {
+      margin-top: @sizeUnit * .5;
+
+      > * {
+        margin-left: @sizeUnit * 6;
+        width: calc(~"100% - @{sizeUnit} * 6");
+      }
+
+      > *:before {
+        margin-left: -@sizeUnit * 6;
+      }
+
+      .author:not(:empty):before {
+        content: 'Любимые авторы:';
+      }
+
+      .book:not(:empty):before {
+        content: 'Любимые книги:';
+      }
+
+      .genre:not(:empty):before {
+        content: 'Любимые жанры:';
+      }
+
+      .film:not(:empty):before {
+        content: 'Любимые фильмы:';
+      }
+
+      .music:not(:empty):before {
+        content: 'Любимая музыка:';
+      }
+    }
+  }
+
+  .author-book {
+    margin: @sizeUnit 0;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    min-width: @sizeUnit * 18;
+
+    &-header{
+      float: left;
+      width: 100%;
+    }
+
+    &-items {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 912px) {
+  #content > .author {
+
+    .author-avatar {
+      display: inline-block;
+
+      &-box {
+        width: calc(~"100% - @{sizeUnit} * 2");
+        text-align: center;
+      }
+    }
+
+    .author-info {
+
+      &-box {
+        width: calc(~"100% - @{sizeUnit} * 2");
+        text-align: center;
+
+        * {
+          text-align: left;
+          float: none;
+        }
+
+        .wrapper {
+          display: inline-block;
+        }
+      }
+
+      &-name {
+        text-align: center;
+        input{
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+#content > .author.settings {
+  width: calc(~"100vw - @{menuNormalWidth} - @{sizeUnit} * 5 - 1px");
+  height: calc(~"100vh - @{sizeUnit} * 4");
+
+  .wrapper{
+    margin: @sizeUnit 0;
+  }
+
+  @media (max-width: @mobileScrinWidth){
+    width: calc(~"100vw - @{menuMobileWidth} - @{sizeUnit} * 5 - 1px");
+  }
+
+  .author-avatar {
+    input[type=file] {
+      display: block;
+      position: absolute;
+      top: @sizeUnit * 12 * .7;
+      left: @sizeUnit * 12 * .7;
+      width: @sizeUnit * 12 * .3;
+      height: @sizeUnit * 12 * .3;
+      cursor: pointer;
+      opacity: 0;
+      z-index: 9;
+
+      & + div:after {
+        position: absolute;
+        font-family: @iconFont;
+        color: @titleColor;
+        content: '\e00a';
+        top: @sizeUnit * 12 * .7;
+        left: @sizeUnit * 12 * .7;
+        width: @sizeUnit * 12 * .3;
+        height: @sizeUnit * 12 * .3;
+        padding-top: @sizeUnit * 1.5;
+        font-size: 2rem;
+        text-align: right;
+      }
+    }
+  }
+
+  .author-info {
+
+    &-box {
+
+      input, textarea {
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 1px solid fade(@titleColor, 30%);
+        min-height: @sizeUnit * 2;
+        padding: 0 @sizeUnit * .5;
+        width: 100%;
+        outline: none;
+        background: @bodyBgColor;
+        font-family: @contentFont;
+        color: @titleColor;
+        font-size: 1.2rem;
+      }
+
+      textarea{
+        resize: vertical;
+        line-height: @sizeUnit * 2 - 2;
+        min-height: @sizeUnit * 6;
+        height: @sizeUnit * 6;
+      }
+
+      div.author-info-email{
+        &.noValid input {
+          border-bottom: 1px solid fade(@accentColor, 60%);
+        }
+        &.noValid:hover:after{
+          content: 'Неверный E-Mail адрес';
+        }
+        &.noValid:empty:hover:after {
+          margin-top: @sizeUnit * 2 + 1px;
+        }
+      }
+
+      div.author-info-name{
+        min-height: @sizeUnit * 2.5;
+        input{
+          font-family: @titleFont;
+          font-size: 2.5rem;
+          line-height: @sizeUnit * 2.5;
+        }
+        &.noValid input {
+          border-bottom: 1px solid fade(@accentColor, 60%);
+        }
+        &.noValid:hover:after{
+          content: 'Имя пользователя должно содержать минимум 2 видимых символа';
+        }
+        &.noValid:empty:hover:after {
+          margin-top: @sizeUnit * 2.5 + 1px;
+        }
+      }
+
+      div.author-info-birthday {
+        border-bottom: 1px solid fade(@titleColor, 30%);
+        height: @sizeUnit * 2;
+        span{
+          display: block;
+          padding: 0 @sizeUnit * .5;
+        }
+        &:not:before {
+          content: 'День рождения:';
+        }
+        &-picker {
+          position: absolute;
+          overflow: hidden;
+          max-width: @sizeUnit * 8 * 2;
+          min-width: @sizeUnit * 6 * 2;
+          width: calc(~"100% - @{sizeUnit} * 16");
+          height: @sizeUnit * 12.5;
+          border-radius: 5px;
+          box-shadow: 1px 1px 3px 1px @shadowColor;
+
+          &.close{
+            visibility: hidden;
+          }
+
+          &.open{
+            visibility: visible;
+          }
+
+          .date-picker {
+            overflow: hidden;
+            background-color: fade(@menuBgColor, 92%);
+            font-size: 1rem;
+            width: 100%;
+            height: @sizeUnit * 2 + @sizeUnit * 1.5 * 7;
+            display: inline-block;
+            float: left;
+
+            *:focus {
+              outline: none;
+            }
+
+            .dp-header {
+              height: @sizeUnit * 2;
+              line-height: @sizeUnit * 2;
+              text-align: center;
+              cursor: pointer;
+              background-color: fade(@titleColor, 90%);
+
+              .dp-nav-cell, .dp-nav-view {
+                color: @contentBgColor;
+                user-select: none;
+                &:hover {
+                  background: fade(@bodyBgColor, 10%);
+                }
+              }
+
+              .dp-nav-cell {
+                width: @sizeUnit * 2;
+                text-align: center;
+                float: left;
+                font-family: @iconFont;
+                font-size: 1rem;
+              }
+              .dp-nav-view {
+                width: calc(~"100% - @{sizeUnit} * 4");
+                text-align: center;
+                float: left;
+              }
+            }
+
+            .dp-body {
+              height: calc(~"100% - @{sizeUnit} * 2");
+              float: left;
+              width: 100%;
+
+              .dp-table {
+                float: left;
+                width: 100%;
+
+                .dp-row {
+                  border-top: 1px solid fade(@titleColor, 30%);
+                  height: 100% / 7;
+                  box-sizing: border-box;
+                  float: left;
+                  width: 100%;
+
+                  .dp-cell {
+                    box-sizing: border-box;
+                    width: 100% / 7;
+                    height: @sizeUnit * 1.5 - 1px;
+                    line-height: @sizeUnit * 1.5;
+                    padding: 0 @sizeUnit * 0.25;
+                    text-align: center;
+                    float: left;
+                    user-select: none;
+
+                    &.dp-week-day-name{
+                      color: fade(@titleColor, 70%);
+                    }
+
+                    &:not(:first-child) {
+                      border-left: 1px solid fade(@titleColor, 30%);
+                    }
+                    &:not(.dp-week-day-name):hover {
+                      background: fade(@titleColor, 10%);
+                      cursor: pointer;
+                    }
+                    &.dp-prev, &.dp-next {
+                      color: fade(@titleColor, 60%);
+                    }
+                    &.dp-value {
+                      color: @contentBgColor;
+                      background: fade(@titleColor, 90%);
+                    }
+                    &.dp-current {
+                      color: @contentBgColor;
+                      background: fade(@titleColor, 40%);
+                    }
+                    &.dp-weekend.dp-weekend-highlight,
+                    &.dp-weekend.dp-weekend-highlight.dp-value {
+                      color: @accentColor;
+                      &:hover {
+                        color: @accentColor;
+                      }
+                      &.dp-prev, &.dp-next {
+                        color: fade(@accentColor, 40%);
+                      }
+                    }
+
+                    &.dp-after-max,
+                    &.dp-after-max.dp-weekend-highlight,
+                    &.dp-after-max.dp-weekend-highlight.dp-prev,
+                    &.dp-after-max.dp-weekend-highlight.dp-next,
+                    &.dp-after-max.dp-weekend-highlight.dp-value,
+                    &.dp-after-max.dp-weekend-highlight.dp-value.dp-prev,
+                    &.dp-after-max.dp-weekend-highlight.dp-value.dp-next{
+                      color: fade(@titleColor, 10%);
+                      &:hover{
+                        background: transparent;
+                        color: fade(@titleColor, 10%);
+                      }
+                    }
+                  }
+                }
+
+                &.dp-year-view, &.dp-decade-view {
+                  .dp-row {
+                    height: 100% / 3;
+                    .dp-cell {
+                      width: 100% / 4;
+                      height: @sizeUnit * 7 * 1.5 / 3;
+                      line-height: @sizeUnit * 7 * 1.5 / 3;
+                      white-space: nowrap;
+                      overflow: hidden;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .author-info-password {
+        margin-left: @sizeUnit * 6;
+        div {
+          box-sizing: border-box;
+          border-bottom: 1px solid fade(@titleColor, 30%);
+          min-height: @sizeUnit * 2;
+          padding: 0 @sizeUnit * .5;
+        }
+        &:before{
+          content: 'Пароль:';
+          margin-left: -@sizeUnit * 6;
+        }
+      }
+
+      div.author-info-city:before {
+        content: 'Родной город:';
+        margin-left: -@sizeUnit * 6;
+      }
+
+      div.author-info-education:before {
+        content: 'Образование:';
+        margin-left: -@sizeUnit * 6;
+      }
+
+      div.author-info-about:before {
+        content: 'Обо мне:';
+        margin-left: -@sizeUnit * 6;
+      }
+
+      div.author-info-favorite {
+
+        .author:before {
+          content: 'Любимые авторы:';
+        }
+
+        .book:before {
+          content: 'Любимые книги:';
+        }
+
+        .genre:before {
+          content: 'Любимые жанры:';
+        }
+
+        .film:before {
+          content: 'Любимые фильмы:';
+        }
+
+        .music:before {
+          content: 'Любимая музыка:';
+        }
+      }
+
+      div.author-info-notice {
+        & > div {
+          white-space: nowrap;
+          cursor: pointer;
+          margin: @sizeUnit * .25 0;
+          &:before {
+            padding: 0;
+            margin: 3px @sizeUnit 3px @sizeUnit * 3.5;
+            width: @sizeUnit * 1.5;
+            height: @sizeUnit * 1.5;
+            line-height: @sizeUnit * 1.5;
+            text-align: center;
+            font-family: @iconFont;
+            content: '\2610';
+            color: fade(@titleColor, 20%);
+            border: 1px solid fade(@titleColor, 50%);
+            border-radius: 50%;
+            font-size: 1.3rem;
+          }
+        }
+
+        & > div.checked:before {
+          color: fade(@titleColor, 80%);
+          content: '\2611';
+        }
+
+        .author-info-notice-title{
+          font-family: @titleFont;
+          font-size: 1.3rem;
+          margin: @sizeUnit 0 @sizeUnit * .5 ;
+          color: fade(@titleColor, 80%);
+          &:before{
+            margin: 0 @sizeUnit;
+            visibility: hidden;
+          }
+        }
+      }
+
+      .button{
+        margin: @sizeUnit 0;
+        float: right;
+        border-radius: 5px;
+        width: auto;
+        padding: @sizeUnit*.25 @sizeUnit;
+        visibility: hidden;
+
+        &.visible{
+          visibility: visible;
+        }
+      }
+
+      .noValid {
+        &:after{
+          content: '\E00B';
+          color: fade(@accentColor, 70%);
+          font-family: @iconFont;
+          font-size: 1.25rem;
+          margin-top: 0;
+          margin-left: -@sizeUnit;
+          display: block;
+          float: right;
+          height: @sizeUnit * 2;
+          width: @sizeUnit;
+          padding-top: 2px;
+          position: relative;
+          z-index: 1;
+        }
+        &:hover:after{
+          position: absolute;
+          background-color: fade(@contentBgColor, 90%);
+          border-radius: 0 0 5px 5px;
+          font-family: @contentFont;
+          font-size: 1rem;
+          margin: 1px @sizeUnit * 2 0 0;
+          height: auto;
+          width: auto;
+          padding: @sizeUnit * .5;
+          line-height: @sizeUnit;
+        }
+      }
+    }
+  }
+
+  .modal-window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: fade(@titleColor, 80);
+    z-index: 99;
+    text-align: center;
+
+    .modal-body {
+      margin-top: calc(~"50vh - @{sizeUnit} * 9");
+      display: inline-block;
+      //width: @sizeUnit * 20;
+      //height: @sizeUnit * 20;
+      background-color: fade(@bodyBgColor, 95%);
+
+      .modal-content{
+        margin: @sizeUnit;
+        .wrapper {
+          height: @sizeUnit * 2;
+          line-height: @sizeUnit * 2;
+          margin: 0;
+          float: none;
+
+          input {
+            padding: 0 @sizeUnit * .5;
+            height: @sizeUnit * 2;
+            border: 0;
+            background-color: transparent;
+            border-bottom: 1px solid fade(@titleColor, 30%);
+            color: @titleColor;
+            box-sizing: border-box;
+            width: @sizeUnit * 12;
+            font-family: @contentFont;
+            font-size: 1.2rem;
+
+            &:focus {
+              outline: none;
+            }
+
+            &:-webkit-autofill{
+              -webkit-box-shadow: inset 0 0 0 50px mix(@bodyBgColor, @titleColor, 92%);
+              border-bottom: 1px solid fade(@titleColor, 80%);
+              -webkit-text-fill-color: @titleColor;
+            }
+          }
+
+          &.noValid {
+            input {
+              border-bottom: 1px solid fade(@accentColor, 60%);
+            }
+            &:after{
+              content: '\E00B';
+              color: fade(@accentColor, 70%);
+              font-family: @iconFont;
+              font-size: 1.25rem;
+              margin-left: -@sizeUnit;
+              display: block;
+              float: right;
+              height: @sizeUnit * 2;
+              width: @sizeUnit;
+              padding-top: 2px;
+            }
+            &:hover:after{
+              position: absolute;
+              background-color: fade(@contentBgColor, 90%);
+              border-radius: 0 0 5px 5px;
+              font-family: @contentFont;
+              font-size: 1rem;
+              margin-left: @sizeUnit * 6;
+              width: @sizeUnit * 11;
+              height: auto;
+              padding: @sizeUnit * .5;
+              line-height: @sizeUnit;
+            }
+          }
+
+          &:before {
+            display: block;
+            float: left;
+            text-align: left;
+            height: @sizeUnit * 2;
+            line-height: @sizeUnit * 2;
+            color: fade(@titleColor, 70%);
+            width: @sizeUnit * 6;
+          }
+        }
+
+        .old-password {
+          &:before {
+            content: 'Старый пароль:';
+          }
+          &.noValid:hover:after{
+            content: 'Пароль должен содержать не менее 8 символов английского алфавита или цифр';
+          }
+        }
+
+        .new-password{
+          margin: @sizeUnit 0 @sizeUnit*.5;
+          &:before {
+            content: 'Новый пароль:';
+          }
+          &.noValid:hover:after{
+            content: 'Пароль должен содержать не менее 8 символов английского алфавита или цифр';
+          }
+        }
+
+        .new-password2 {
+          &:before {
+            line-height: @sizeUnit;
+            content: 'Повторите пароль:';
+          }
+          &.noValid:hover:after{
+            content: 'Пароли не совпадают';
+          }
+        }
+      }
+    }
+
+    canvas {
+      border-radius: 50%;
+      margin: @sizeUnit * 2 @sizeUnit * 2;
+      cursor: move;
+    }
+
+    .modal-header {
+      display: inline-block;
+      width: 100%;
+      text-align: left;
+      .title{
+        display: inline-block;
+        margin: 0 @sizeUnit * 2.5 0 @sizeUnit;
+        height: @sizeUnit * 2.5;
+        line-height: @sizeUnit * 2.5;
+        font-family: @titleFont;
+        font-size: 1.7rem;
+        color: @titleColor;
+      }
+    }
+
+    .close, .zoom {
+      font-family: @iconFont;
+      color: @titleColor;
+      font-size: 1.5rem;
+      line-height: @sizeUnit * 2;
+      user-select: none;
+    }
+
+    .close, .zoom div {
+      float: right;
+      text-align: center;
+      cursor: pointer;
+      height: @sizeUnit * 2;
+      width: @sizeUnit * 2;
+    }
+
+    .close {
+      margin-left: -@sizeUnit * 2;
+    }
+
+    .zoom {
+      position: absolute;
+      margin-top: -@sizeUnit * 4;
+      margin-left: -@sizeUnit * 6;
+      display: inline-block;
+      width: @sizeUnit * 12;
+
+      .minus {
+        float: left;
+      }
+
+      .inactive {
+        color: fade(@titleColor, 40%);
+      }
+    }
+
+    .button {
+      margin: 0;
+    }
+  }
+}

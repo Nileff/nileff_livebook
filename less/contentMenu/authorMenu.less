@@ -1,0 +1,81 @@
+.author-conteiner, .genre-conteiner{
+  display: inline-block;
+  text-align: center;
+  margin-bottom: @sizeUnit * 2;
+}
+
+.author-item{
+  display: inline-block;
+  text-align: center;
+  background-color: @contentBgColor;
+  width: @sizeUnit * 11;
+  height: @sizeUnit * 17;
+  padding: @sizeUnit * .5 @sizeUnit * .5 0;
+  box-shadow: 3px 3px 3px 2px @shadowColor;
+
+  &:active{
+    color: inherit;
+  }
+
+  .avatar{
+    height: @sizeUnit * 8;
+    position: relative;
+    z-index: 1;
+
+    div{
+      display: inline-block;
+      height: @sizeUnit * 6;
+      width: @sizeUnit * 6;
+      border-radius: 50%;
+      background:  no-repeat center;
+      background-size: cover;
+      margin: @sizeUnit 0;
+
+      &:before{
+        content: '\e002';
+        display: block;
+        position: absolute;
+        height: @sizeUnit * 6 + 2;
+        width: @sizeUnit * 6 + 4;
+        border: 1px solid fade(@titleColor, 60%);
+        border-radius: 50%;
+        margin: -3px 0 0 -3px;
+        line-height: @sizeUnit * 6;
+        font-family: @iconFont;
+        font-size: 7.5rem;
+        z-index: -1;
+      }
+    }
+  }
+
+  .author-count{
+    float: left;
+    width: calc(~"100% - @{sizeUnit}");
+    margin: 0 @sizeUnit * .5;
+  }
+
+  .author-book-count,
+  .author-chapter-count{
+    text-align: left;
+    line-height: @sizeUnit * 2;
+    height: @sizeUnit * 2;
+
+    &:before {
+      width: @sizeUnit * 3;
+    }
+  }
+
+  .author-book-count{
+    float: left;
+    &:before{
+      content: 'Книги:';
+    }
+  }
+
+  .author-chapter-count{
+    float: right;
+    &:before{
+      content: 'Главы:';
+    }
+  }
+}

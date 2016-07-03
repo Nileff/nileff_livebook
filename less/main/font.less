@@ -1,0 +1,31 @@
+.font(@font, @weight, @style, @prefix) {
+  font-family: @font;
+  src: url('font/@{font}@{prefix}.eot');
+  src: url('font/@{font}@{prefix}.eot#iefix') format('embedded-opentype'),
+  url('font/@{font}@{prefix}.woff2') format('woff2'),
+  url('font/@{font}@{prefix}.woff') format('woff'),
+  url('font/@{font}@{prefix}.ttf') format('truetype'),
+  url('font/@{font}@{prefix}.svg#@{font}') format('svg');
+  font-weight: @weight;
+  font-style: @style;
+}
+
+@font-face {
+  .font('Lobster', normal, normal, '');
+}
+
+@font-face {
+  .font('Merriweather', normal, normal, 'R');
+}
+
+@font-face {
+  .font('Merriweather', bold, normal, 'B');
+}
+
+@font-face {
+  .font('Merriweather', normal, italic, 'I');
+}
+
+@font-face {
+  .font('LiveBook', normal, normal, '_3');
+}

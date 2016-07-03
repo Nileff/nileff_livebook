@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+    <meta charset="UTF-8">
+    <meta name='yandex-verification' content='760d38697fe86561' />
+    <meta name="google-site-verification" content="F6967KnTcTmAXaU57XCK5LMpcW0dU3l-tFDij6H1PnE" />
+    <link rel="apple-touch-icon" sizes="57x57" href="icon/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="icon/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icon/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icon/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="icon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="icon/favicon-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="icon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="icon/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="icon/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="icon/manifest.json">
+    <link rel="mask-icon" href="icon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link href="css/style_07.css" rel="stylesheet">
+    <title><?=$authorName?> - <?=$bookName?> (<?=$chapterName?>) | Живая Книга - литературный портал</title>
+</head>
+<body>
+<div id="main">
+    <div id="left-panel">
+        <div id="logo">
+            <a id="logo-panel" href="#">
+                <div id="logo-text">
+                    <span>Живая</span>
+                    <br/>
+                    <span>Книга</span>
+                </div>
+            </a>
+        </div>
+        <div id="menu">
+            <div id="menu-panel">
+                <div class="menu-item-conteiner">
+                    <a class="menu-item" href="#">
+                        <div id="menu-item-library">
+                            <div class="menu-color"></div>
+                            <div class="menu-text">Читать</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="menu-item-conteiner">
+                    <a class="menu-item" href="#">
+                        <div id="menu-item-info">
+                            <div class="menu-color"></div>
+                            <div class="menu-text">О проекте</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="login">
+            <div>
+                <div id="login-btn" class="in">
+                    <span>Войти</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="main-panel">
+        <div id="content">
+            <div class="book">
+                <div class="book-content">
+                    <div class="book-header">
+                        <a class="book-author" href="#">
+                            <div class="name"><?=$authorName?></div>
+                            <div class="avatar"
+                                 style='background-image: url("css/img/<?=$avatar?>")'>
+                            </div>
+                        </a>
+                        <div class="book-title">
+                            <a class="back-btn" style="visibility:hidden;" href="#"></a>
+                            <a class="home-btn" style="visibility:hidden;" href="#"></a>
+                            <div class="book-name"><?=$bookName?></div>
+                            <div class="book-chapter" data-title="<?=$chapterLevel?>"><?=$chapterName?></div>
+                        </div>
+                        <div class="bookmark"></div>
+                    </div>
+                    <div class="book-text" id="book-text">
+                        <p>
+                            <?=$bookText?>
+                        </p>
+                    </div>
+                    <div class="book-button-panel">
+                        <div class="rating">
+                            <?=$ratingTpl?>
+                        </div>
+                    </div>
+                </div>
+                <div class="book-next-panel close">
+                    <div class="next-panel-control">&lt;</div>
+                    <div class="next-panel-content">
+                        <div class="next-panel-header">Глава <?=($chapterLevel + 1)?></div>
+                        <div class="next-panel-content-chapter"></div>
+                        <a class="button" href="#">Написать свой вариант</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

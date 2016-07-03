@@ -1,0 +1,43 @@
+#logo-panel {
+  float: left;
+  overflow: hidden;
+  background-color: @logoBgColor;
+  height: @sizeUnit * 6;
+  width: @menuNormalWidth;
+
+  @media (max-width: @mobileScrinWidth) {
+    overflow: hidden;
+    height: @sizeUnit * 4;
+    width: @menuMobileWidth;
+  }
+}
+
+#logo-text {
+  float: left;
+  color: @contentBgColor;
+  font-family: @titleFont;
+  font-size: 2rem;
+  font-weight: normal;
+  line-height: @sizeUnit * 2;
+  margin-top: @sizeUnit;
+
+  @media (max-width: @mobileScrinWidth) {
+    margin-top: @sizeUnit * .5;
+  }
+
+  &:before{
+    content: '';
+    float: left;
+    height: @sizeUnit * 4;
+    width: @sizeUnit * 4;
+    background: url(img/logo.png) no-repeat;
+    background-size: contain;
+    margin: 0 @sizeUnit @sizeUnit;
+
+    @media (max-width: @mobileScrinWidth) {
+      height: @sizeUnit * 3;
+      width: @sizeUnit * 3;
+      margin: 0 @sizeUnit * .5 @sizeUnit * .5;
+    }
+  }
+}

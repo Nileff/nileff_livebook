@@ -1,0 +1,118 @@
+.genre-item {
+  display: inline-block;
+  text-align: center;
+  background-color: @contentBgColor;
+  width: @sizeUnit * 10;
+  height: @sizeUnit * 14;
+  padding: @sizeUnit * .5 @sizeUnit * .5 0;
+  box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, .2);
+
+  .genre-icon-wraper {
+    height: @sizeUnit * 7.5;
+  }
+
+  div[class^="icon-"] {
+    display: inline-block;
+    height: @sizeUnit * 6;
+    width: @sizeUnit * 6;
+    border-radius: 50%;
+    background: no-repeat center;
+    background-size: cover;
+    margin: @sizeUnit 0 @sizeUnit * .5;
+
+    &:before {
+      display: block;
+      position: absolute;
+      height: @sizeUnit * 6 + 2;
+      width: @sizeUnit * 6 + 4;
+      border: 1px solid fade(@titleColor, 60%);
+      border-radius: 50%;
+      margin: -3px 0 0 -3px;
+      line-height: @sizeUnit * 6;
+      font-family: @iconFont;
+      font-size: 6.5rem;
+    }
+  }
+
+  .book-count {
+    text-align: left;
+
+    &:before {
+      width: @sizeUnit * 3;
+      content: 'Книги:';
+    }
+  }
+
+  .icon-biography:before {
+    content: '\e002';
+  }
+
+  .icon-thriller:before {
+    content: '\e010';
+  }
+
+  .icon-military:before {
+    content: '\e011';
+  }
+
+  .icon-detective:before {
+    content: '\e012';
+  }
+
+  .icon-history:before {
+    content: '\e013';
+  }
+
+  .icon-love:before {
+    content: '\e014';
+  }
+
+  .icon-mystic:before {
+    content: '\e015';
+  }
+
+  .icon-poet:before {
+    content: '\e016';
+  }
+
+  .icon-adventure:before {
+    content: '\e017';
+  }
+
+  .icon-fantastic:before {
+    content: '\e018';
+  }
+
+  .icon-fantasy:before {
+    content: '\e019';
+  }
+
+  .icon-erotic:before {
+    content: '\e01a';
+  }
+
+  .icon-comedy:before {
+    content: '\e01b';
+  }
+
+  .icon-tragedy:before {
+    content: '\e01c';
+  }
+
+  .icon-education:before {
+    content: '\e01e';
+  }
+
+  .icon-story:before {
+    content: '\e01d';
+  }
+
+  .icon-baby:before {
+    content: '\e01f';
+  }
+
+  .icon-mini:before {
+    content: '.';
+    line-height: @sizeUnit * 1.5 !important;
+  }
+}
